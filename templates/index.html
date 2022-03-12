@@ -7,21 +7,28 @@
     <title>Document</title>
     <style>
         body {
-            margin: 30px 20vw;
+            margin: 0 20vw;
             font-family: monospace;
         }
-        h1 {
-            text-align: center;
-            text-decoration: underline;
+        form {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: space-evenly;
         }
         .round-corner {
             border-radius: 5px;
         }
+        h1 {
+            font-size: 3.5vh;
+            margin: 0;
+            text-align: center;
+            text-decoration: underline;
+        }
         button {
-            width: 200px;
-            height: 65px;
-            margin: 10px auto 10px auto;
-            display: flex;
+            margin: 0;
+            padding: 40px;
+            width: 100%;
             justify-content: center;
             background-color: transparent;
             border-color: transparent;
@@ -35,21 +42,12 @@
             box-shadow: inset 1px 1px 3px black;
         }
         button img {
-            transform: rotate(90deg);
-            top: 0;
-            bottom: 0;
-            margin: auto;
-            left: 0;
-            right: 0;
-        }
-        .choice-container {
-            display: flex;
-            flex-direction: row;
+            
         }
         textarea {
             padding: 30px 30px;
             width: 100%;
-            height: 60vh;
+            height: 70vh;
             border-color: transparent;
             box-shadow: 1px 1px 3px black;
             resize: none;
@@ -82,22 +80,18 @@
     </style>
 </head>
 <body>
-    <h1>Autowritter</h1>
     <form action="" method="post">
-        <textarea class="round-corner" name="name" cols="1" rows="5" placeholder="Enter Your Article Here &#10;(Suggest: words > 100 for more significant result)">{{output_text}}</textarea>
+        <h1>Autowritter</h1>
+        <textarea class="round-corner" name="input" cols="1" rows="5" placeholder="Enter Your Article Here &#10;(Suggest: words > 100 for more significant result)">{{output_text}}</textarea>
         <button type="submit" class="round-corner">
-            Start
+            <img src="/static/pencil.png" alt="">
         </button>
-        <div class="choice-container">
-            <button class="choice round-corner" type="submit" name="choice1">1</button>
-            <button class="choice round-corner" type="submit" name="choice2">2</button>
-            <button class="choice round-corner" type="submit" name="choice3">3</button>
-        </div>
     </form>
     <pre id="credit">
         Credit: 
         [Model](https://huggingface.co/distilgpt2)
-        [Library/Framework]Flask, transformers</pre>
-    <a id="github" href="https://github.com/JackyChanzijian/flask-summary-website"><img src="/static/github.png"/></a>
+        [Library/Framework]Flask, transformers
+        Made by: Jacky</pre>
+    <a id="github" href="https://github.com/JackyChanzijian/flask-autowritter"><img src="/static/github.png"/></a>
 </body>
 </html>
