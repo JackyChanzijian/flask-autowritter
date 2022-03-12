@@ -14,17 +14,19 @@
             text-align: center;
             text-decoration: underline;
         }
+        .round-corner {
+            border-radius: 5px;
+        }
         button {
-            width: 65px;
+            width: 200px;
             height: 65px;
-            margin: 20px auto 20px auto;
+            margin: 10px auto 10px auto;
             display: flex;
             justify-content: center;
             background-color: transparent;
             border-color: transparent;
             box-shadow: 1px 1px 3px black;
             cursor: pointer;
-            border-radius: 100%;
         }
         button:hover {
             background-color: gainsboro;
@@ -40,10 +42,14 @@
             left: 0;
             right: 0;
         }
+        .choice-container {
+            display: flex;
+            flex-direction: row;
+        }
         textarea {
             padding: 30px 30px;
             width: 100%;
-            height: 30vh;
+            height: 60vh;
             border-color: transparent;
             box-shadow: 1px 1px 3px black;
             resize: none;
@@ -54,15 +60,6 @@
         textarea:focus {
             border-color: transparent;
             outline: none;
-        }
-        p {
-            text-align: center;
-            height: 25vh;
-            box-shadow: 1px 1px 3px black;
-            font-size: xx-large;
-            text-align: center;
-            padding: 30px 30px;
-            background-color: aliceblue;
         }
         #credit {
             position: fixed;
@@ -85,17 +82,21 @@
     </style>
 </head>
 <body>
-    <h1>Summary Machine</h1>
+    <h1>Autowritter</h1>
     <form action="" method="post">
-        <textarea name="name" cols="1" rows="5" placeholder="Enter Your Article Here &#10;(Suggest: words > 100 for more significant result)">{{request.form['name']}}</textarea>
-        <button type="submit">
-            <img src="/static/arrow.png" alt="">
-        </button> 
+        <textarea class="round-corner" name="name" cols="1" rows="5" placeholder="Enter Your Article Here &#10;(Suggest: words > 100 for more significant result)">{{output_text}}</textarea>
+        <button type="submit" class="round-corner">
+            Start
+        </button>
+        <div class="choice-container">
+            <button class="choice round-corner" type="submit" name="choice1">1</button>
+            <button class="choice round-corner" type="submit" name="choice2">2</button>
+            <button class="choice round-corner" type="submit" name="choice3">3</button>
+        </div>
     </form>
-    <p>{{summary}}</p>
     <pre id="credit">
         Credit: 
-        [Model](https://huggingface.co/cnicu/t5-small-booksum)
+        [Model](https://huggingface.co/distilgpt2)
         [Library/Framework]Flask, transformers</pre>
     <a id="github" href="https://github.com/JackyChanzijian/flask-summary-website"><img src="/static/github.png"/></a>
 </body>
